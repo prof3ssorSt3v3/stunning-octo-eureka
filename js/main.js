@@ -27,6 +27,7 @@ function pageSpecific() {
   let id = document.body.id;
   switch (id) {
     case 'home':
+      import('./iter-enum.js');
       break;
     case 'products':
       break;
