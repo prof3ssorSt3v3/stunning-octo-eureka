@@ -77,6 +77,9 @@ nav {
     margin: 0;
     border: none;
   }
+  form:has(input:focus) span {
+    color: var(--blue);
+  }
 }
 main {
   h2 {
