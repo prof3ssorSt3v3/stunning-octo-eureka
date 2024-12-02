@@ -6,15 +6,16 @@
     <meta
       http-equiv="content-security-policy"
       content="default-src 'self';
-      style-src 'self' fonts.googleapis.com;
+      style-src 'self' fonts.googleapis.com picsum.photos dummyjson.com;
       script-src 'self' 'unsafe-inline';
-      img-src 'self';
+      img-src 'self' dummyjson.com picsum.photos;
       font-src 'self' fonts.gstatic.com;
-      connect-src 'self' dummyjson.com;
+      connect-src 'self' dummyjson.com picsum.photos;
       "
     />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preconnect" href="https://picsum.photos" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=search" />
     <link rel="stylesheet" href="css/main.css" />
@@ -22,6 +23,7 @@
     <script src="js/main.js" type="module"></script>
   </head>
   <body id="home">
+    <a id="top"></a>
     <header>
       <h1>Project Structure</h1>
     </header>
@@ -59,6 +61,7 @@
         Iure architecto assumenda harum corporis molestiae, distinctio alias rem error quisquam quia quos tempora deserunt quaerat consequatur nulla explicabo accusantium sint molestias officiis!
         Iusto exercitationem voluptatibus quaerat facilis reprehenderit blanditiis!
       </p>
+      <a href="#top">Go to Top</a>
     </main>
   </body>
 </html>

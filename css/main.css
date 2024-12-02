@@ -67,6 +67,7 @@ nav {
     line-height: 1;
     vertical-align: text-bottom;
     color: var(--black);
+    transition: transform 0.4s linear;
   }
   input {
     font-size: clamp(1.125rem, 2.539cqi, 1.414rem);
@@ -77,8 +78,13 @@ nav {
     margin: 0;
     border: none;
   }
+  input.error {
+    color: red;
+    font-weight: bold;
+  }
   form:has(input:focus) span {
     color: var(--blue);
+    transform: scale(2);
   }
 }
 main {

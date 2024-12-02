@@ -1,13 +1,13 @@
 (() => {
   //iterable vs enumerable
 
-  //Arrays are Iterable and Enumerable
+  //Arrays, Strings, HTMLCollection, NodeList are Iterable and Enumerable
   let names = ['Tina', 'Louise', 'Gene', 'Bob', 'Linda'];
 
   //Objects are Enumerable but not Iterable
   let obj = {
-    id: 123,
     character: 'Bob Belcher',
+    id: 123,
   };
   Object.defineProperty(obj, 'show', {
     value: "Bob's Burgers",
@@ -15,15 +15,17 @@
     enumerable: false,
     configurable: false,
   });
+  // obj.show = 'Supernatural'; //fails because writable: false
 
   //loop through Iterable with for, for..in, for..of, .forEach()
+  //Iterable objects have an Iterator property
   for (let prop of names) {
-    console.log(`ITERABLE ${prop}`);
+    console.log(`ITERABLE ${prop}`); //values
   }
 
   //loop through Enumerable with for..in only
   for (let prop in obj) {
-    console.log(`ENUMERABLE ${prop}`);
+    console.log(`ENUMERABLE ${prop}`); //keys (property names)
   }
 
   //add an iterator to the object
@@ -32,6 +34,8 @@
   for (let prop of obj) {
     console.log(`ITERABLE ${prop}`);
   }
+
+  bob();
 })();
 
 function addIterator(obj) {
@@ -54,10 +58,32 @@ function addIterator(obj) {
           case 2:
             index++;
             return { done: false, value: obj.show };
+          case 3:
+            index++;
+            return { done: false, value: Math.sin(1) };
           default:
             return { done: true, value: undefined };
         }
       },
     };
   };
+}
+
+function* hello() {
+  yield 123;
+  console.log('after the first call to next()');
+  yield 'hello';
+  yield 'John';
+}
+
+function bob() {
+  let myIterator = hello();
+  console.log(myIterator.next());
+  console.log(myIterator.next());
+  console.log(myIterator.next());
+  console.log(myIterator.next());
+
+  // for (let val in hello()) {
+  //   console.log(val);
+  // }
 }
